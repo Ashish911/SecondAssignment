@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -44,6 +45,12 @@ public class ReverseNoFragment extends Fragment implements View.OnClickListener 
 
     @Override
     public void onClick(View v) {
+
+        if (TextUtils.isEmpty(etNumber.getText())){
+            etNumber.setError("Enter No");
+            return;
+        }
+
         int Reverse = Integer.parseInt(etNumber.getText().toString());
         int ReversedNo = 0, Remainder;
 

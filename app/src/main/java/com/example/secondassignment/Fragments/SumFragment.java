@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -45,6 +46,16 @@ public class SumFragment extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
+
+        if (TextUtils.isEmpty(etFirst.getText())){
+            etFirst.setError("Enter First No");
+            return;
+        }
+        else if (TextUtils.isEmpty(etSecond.getText())){
+            etSecond.setError("Enter Second No");
+            return;
+        }
+
         int First = Integer.parseInt(etFirst.getText().toString());
         int Second = Integer.parseInt(etSecond.getText().toString());
         int Result = First + Second;

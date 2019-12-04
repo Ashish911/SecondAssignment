@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -45,6 +46,12 @@ public class ReverseStringFragment extends Fragment implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
+
+        if (TextUtils.isEmpty(etString.getText())){
+            etString.setError("Enter a String");
+            return;
+        }
+
         String S = String.valueOf(etString.getText());
         StringBuilder stringBuilder = new StringBuilder(S);
         String Result = String.valueOf(stringBuilder.reverse());

@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -44,6 +45,12 @@ public class AutomorphicNoFragment extends Fragment implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
+
+        if (TextUtils.isEmpty(etNumber.getText())){
+            etNumber.setError("Enter a Number");
+            return;
+        }
+
         int N = Integer.parseInt(etNumber.getText().toString());
         int d=1; int i;
         for(i=N;i>0;i=i/10)

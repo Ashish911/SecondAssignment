@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -44,6 +45,12 @@ public class AreaOfCircleFragment extends Fragment implements View.OnClickListen
 
     @Override
     public void onClick(View v) {
+
+        if (TextUtils.isEmpty(etRadius.getText())){
+            etRadius.setError("Enter Radius");
+            return;
+        }
+
         double Radius = Double.parseDouble(etRadius.getText().toString());
         double Result = Math.PI * Radius * Radius;
 
